@@ -3,7 +3,7 @@ name: Deploy FastAPI to Azure Web App
 on:
   push:
     branches:
-      - playground-suraj-fastapi
+      - main
   workflow_dispatch: # Add workflow_dispatch to manually trigger the workflow
 
 jobs:
