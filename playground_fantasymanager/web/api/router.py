@@ -1,7 +1,9 @@
 from fastapi.routing import APIRouter
 
 from playground_fantasymanager.web.api import echo, monitoring
-from playground_fantasymanager.web.api.fantasy_teams.views import router as fantasy_teams_router
+from playground_fantasymanager.web.api.fantasy_teams.views import (
+    router as fantasy_teams_router,
+)
 
 api_router = APIRouter()
 api_router.include_router(monitoring.router)

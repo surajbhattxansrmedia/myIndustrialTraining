@@ -1,11 +1,13 @@
 from typing import List, Optional, Any
 from pydantic import BaseModel
 
+
 class TeamInfo(BaseModel):
     team_id: str
     name: str
     number_of_players: int
     team_image_url: Optional[str]
+
 
 class PlayerInfo(BaseModel):
     player_id: str
@@ -18,6 +20,7 @@ class PlayerInfo(BaseModel):
     position: str
     team_id: str
 
+
 class FantasyTeamUpdateRequest(BaseModel):
     player_id: str
     player_name: str
@@ -27,16 +30,20 @@ class FantasyTeamUpdateRequest(BaseModel):
     position: str
     team_id: str
 
+
 class FantasyTeam(BaseModel):
     teams: List[TeamInfo]
     players: List[PlayerInfo]
 
+
 class FantasyTeamResponse(BaseModel):
     fantasy_teams: List[FantasyTeam]
+
 
 class FantasyTeamFilteredFieldsResponse(BaseModel):
     fantasy_teams: List[Any]
     count: int
+
 
 class ErrorResponse(BaseModel):
     status: int
