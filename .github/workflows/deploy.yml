@@ -1,9 +1,9 @@
-name: myworkflow !!
+name: My workflow !!
 
 on:
   push:
     branches:
-      - playground-suraj-fastapi
+      - main
   workflow_dispatch: 
 
 jobs:
