@@ -3,7 +3,7 @@ name: Deploy FastAPI to Azure Web App
 on:
   push:
     branches:
-      - playground-suraj-fastapi 
+      - playground-suraj-fastapi
 
 jobs:
   build-and-deploy:
@@ -11,6 +11,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Debug - Echo message
+      run: echo "Workflow triggered!"
 
     - name: Set up Python
       uses: actions/setup-python@v5
