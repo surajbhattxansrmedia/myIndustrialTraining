@@ -1,5 +1,5 @@
 import secrets
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
 
 from fastapi import APIRouter, Body, Path, Query
 
@@ -84,7 +84,8 @@ async def get_user_fantasy_teams(
     """Get fantasy teams for a user and match."""
     if not user_id or not match_id:
         raise ValidationError(
-            "userId and matchId are required", description="Missing userId or matchId",
+            "userId and matchId are required",
+            description="Missing userId or matchId",
         )
     teams = [random_team(match_id) for _ in range(limit)]
     return FantasyTeamResponse(fantasy_teams=teams)
@@ -99,7 +100,9 @@ async def get_single_fantasy_team(
     user_id: str = Path(..., alias="userId", description="User ID"),
     match_id: str = Path(..., alias="matchId", description="Match ID"),
     fantasy_team_id: str = Path(
-        ..., alias="fantasyTeamId", description="Fantasy Team ID",
+        ...,
+        alias="fantasyTeamId",
+        description="Fantasy Team ID",
     ),
     detail: bool = Query(True, description="Return detailed info"),
 ) -> FantasyTeam:
@@ -121,10 +124,13 @@ async def update_fantasy_team_players(
     user_id: str = Path(..., alias="userId", description="User ID"),
     match_id: str = Path(..., alias="matchId", description="Match ID"),
     fantasy_team_id: str = Path(
-        ..., alias="fantasyTeamId", description="Fantasy Team ID",
+        ...,
+        alias="fantasyTeamId",
+        description="Fantasy Team ID",
     ),
     players: List[FantasyTeamUpdateRequest] = Body(
-        ..., description="List of player objects with updated positions",
+        ...,
+        description="List of player objects with updated positions",
     ),
 ) -> Dict[str, str]:
     """Update players in a fantasy team."""
@@ -145,7 +151,9 @@ async def delete_fantasy_team(
     user_id: str = Path(..., alias="userId", description="User ID"),
     match_id: str = Path(..., alias="matchId", description="Match ID"),
     fantasy_team_id: str = Path(
-        ..., alias="fantasyTeamId", description="Fantasy Team ID",
+        ...,
+        alias="fantasyTeamId",
+        description="Fantasy Team ID",
     ),
 ) -> Dict[str, str]:
     """Delete a fantasy team."""
