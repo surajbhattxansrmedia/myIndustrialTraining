@@ -1,0 +1,13 @@
+services:
+  api: &main_app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: playground_fantasymanager:${PLAYGROUND_FANTASYMANAGER_VERSION:-latest}
+    restart: always
+    env_file:
+      - .env
+    environment:
+      PLAYGROUND_FANTASYMANAGER_HOST: 0.0.0.0
+
+
