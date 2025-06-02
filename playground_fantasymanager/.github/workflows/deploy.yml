@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - playground-suraj-fastapi
+  workflow_dispatch: # Add workflow_dispatch to manually trigger the workflow
 
 jobs:
   build-and-deploy:
