@@ -4,13 +4,14 @@ RUN pip install poetry==1.8.2
 
 WORKDIR /app
 
-# Copy only dependency files first for better caching
 COPY pyproject.toml poetry.lock ./
 
 RUN poetry config virtualenvs.create false \
  && poetry install --no-interaction --no-ansi --only main
 
-# Now copy the rest of the code
 COPY . .
+
+# Debug: List installed packages (remove after confirming)
+RUN python -m pip list
 
 CMD ["python", "-m", "uvicorn", "playground_fantasymanager.web.application:get_app", "--host", "0.0.0.0", "--port", "8000"]
