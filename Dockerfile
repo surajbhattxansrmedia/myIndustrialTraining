@@ -12,6 +12,7 @@ RUN poetry config virtualenvs.create false \
 COPY . .
 
 # Debug: List installed packages (remove after confirming)
-RUN python -m pip list
+RUN python -m pip list > /app/pip-list.txt
 
-CMD ["python", "-m", "uvicorn", "playground_fantasymanager.web.application:get_app", "--host", "0.0.0.0", "--port", "8000"]
+EXPOSE 80
+CMD ["python", "-m", "uvicorn", "playground_fantasymanager.web.application:get_app", "--host", "0.0.0.0", "--port", "80"]

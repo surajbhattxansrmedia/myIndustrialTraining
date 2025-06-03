@@ -17,7 +17,7 @@ def get_app() -> FastAPI:
     """
     app = FastAPI(
         title="playground_fantasymanager",
-        version=metadata.version("playground_fantasymanager"),
+        version="0.1.0",
         lifespan=lifespan_setup,
         docs_url="/api/docs",
         redoc_url="/api/redoc",
